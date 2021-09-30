@@ -81,13 +81,13 @@ class Dice{
     
   }
   }
-  if(myY>700-(pileheight[constrain(myX/100,0,10)]*20)-myS &&myG==0){
-    myG=700-(pileheight[constrain(myX/100,0,10)]*20)-myS;
+  if(myY>(700-(pileheight[constrain(myX/100,0,10)]*20)-myS) && myG==0){
+    myG=(700-(pileheight[constrain(myX/100,0,10)]*20)-myS);
     pileheight[constrain(myX/100,0,10)] += myS;
   }
   if((myY>myG)&&(myG!=0)||(myY<0)&&(myYV<0)){
-    myYV=-.5*myYV;
-    myRV = -.9*myRV;
+    myYV = -0.5*myYV;
+    myRV = -0.9*myRV;
     myXV=myXV*.3;
     myC+=1;
   
