@@ -13,7 +13,7 @@ class Dice{ //declare dice class
     myX = x; //x position of die
     myY = y;//y position of die
     myR = r;//rotation of die
-    myG = 0;//height die lands on pile
+    myG = 700;//height die lands on pile
     myS = s;//size of die
     myC = 0;//how many times die has bounced
    myXV = random(-3,3); //velocity of die in x direction
@@ -35,7 +35,7 @@ class Dice{ //declare dice class
    myYV = random(-10,-5); //reset other values
    myRV = random(-4,4);
    myValue= (int)(random(1,7));// roll random value
-   myG=0;
+   myG=700;
    myC = 0;
   }
   
@@ -82,11 +82,11 @@ class Dice{ //declare dice class
     
   }
   }
-  if(myY>(300-(pileheight[constrain(myX/100,0,10)]*18)-myS) &&myG==0){ //when object first hits ground, calculate height of "pile it lands on" based on how many die are already there
-    myG=(300-(pileheight[constrain(myX/100,0,10)]*18)-myS); 
+  if(myY>(700-(pileheight[constrain(myX/100,0,10)]*18)-myS) &&myG==700){ //when object first hits ground, calculate height of "pile it lands on" based on how many die are already there
+    myG=(700-(pileheight[constrain(myX/100,0,10)]*18)-myS); 
     pileheight[constrain(myX/100,0,10)] += myS;
   }
-  if((myY>myG)&&(myG!=0)&&(myYV>0)||(myY<0)&&(myYV<0)){ //bounce off ground and ceiling
+  if(((myY>myG)&&(myYV>0))||((myY<0)&&(myYV<0))){ //bounce off ground and ceiling
     myYV= myYV/-2;
     myRV = -.9*myRV;
     myXV=myXV*.3;
