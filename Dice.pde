@@ -85,7 +85,7 @@ class Dice{
     myG=(700-(pileheight[constrain(myX/100,0,10)]*20)-myS);
     pileheight[constrain(myX/100,0,10)] += myS;
   }
-  if((myY>myG)&&(myG!=0)||(myY<0)&&(myYV<0)){
+  if((myY>myG)&&(myG!=0)&&(myYV>0)||(myY<0)&&(myYV<0)){
     myYV = -0.5*myYV;
     myRV = -0.9*myRV;
     myXV=myXV*.3;
