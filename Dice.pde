@@ -82,12 +82,12 @@ class Dice{ //declare dice class
     
   }
   }
-  if(myY>(300-(pileheight[constrain(myX/100,0,10)]*18)-myS) &&myG<3){ //when object first hits ground, calculate height of "pile it lands on" based on how many die are already there
+  if(myY>(300-(pileheight[constrain(myX/100,0,10)]*18)-myS) &&myG==0){ //when object first hits ground, calculate height of "pile it lands on" based on how many die are already there
     myG=(300-(pileheight[constrain(myX/100,0,10)]*18)-myS); 
     pileheight[constrain(myX/100,0,10)] += myS;
   }
   if((myY>myG)&&(myG!=0)&&(myYV>0)||(myY<0)&&(myYV<0)){ //bounce off ground and ceiling
-    myYV=-.5*myYV;
+    myYV= myYV/-2;
     myRV = -.9*myRV;
     myXV=myXV*.3;
     myC+=1;
