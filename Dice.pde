@@ -2,6 +2,7 @@
 int[]pileheight = new int[11]; //declare array to store how many dice have built up
 int count = 0; //declare int to store sum of all die
 int avgheight = 0;
+int avgg = 0;
 
 class Dice{ //declare dice class
   int myValue, myX, myY, myR, myC;
@@ -81,7 +82,7 @@ class Dice{ //declare dice class
     
   }
   }
-  if(myY>300-(pileheight[constrain(myX/100,0,10)]*18)-myS &&myG==0){ //when object first hits ground, calculate height of "pile it lands on" based on how many die are already there
+  if(myY>(300-(pileheight[constrain(myX/100,0,10)]*18)-myS) &&myG<3){ //when object first hits ground, calculate height of "pile it lands on" based on how many die are already there
     myG=(300-(pileheight[constrain(myX/100,0,10)]*18)-myS); 
     pileheight[constrain(myX/100,0,10)] += myS;
   }
@@ -102,7 +103,7 @@ class Dice{ //declare dice class
   count+=myValue;//update sum of values on die
   
   avgheight+=myY;
-
+  avgg+=myG
   }
 }
   
@@ -146,6 +147,7 @@ void keyPressed(){
 
 void draw(){
   background(300,300,300);
+  avgg = 0;
   avgheight = 0;
   count = 0; //reset sum of all die values
   for(int i = 0; i<60; i++){
@@ -156,7 +158,7 @@ void draw(){
 
 
 textSize(20);
-text(avgheight/60,100,100);
+text(avgheight/60 + ",  " + avgg/60,100,100);
 text("Sum of all die is " + count,880,30); //display score in top right
 
 }
