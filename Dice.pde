@@ -74,7 +74,7 @@ class Dice{ //declare dice class
   }
   myYV=constrain(myYV+.08,-500,500); //change velocity from gravitational acceleration
   
-  if(myX>1100||myX<0){ //bounce off walls
+  if((myX>1100 && myXV>0)||(myX<0 && myXV<0)){ //bounce off walls
     myXV=-0.75*myXV;
     myRV = -.9*myRV;
       if(abs(myXV)<.1){
@@ -158,7 +158,7 @@ void draw(){
 
 
 textSize(20);
-text(avgheight/60 + ",  " + avgg/60,100,100);
+//text(avgheight/60 + ",  " + avgg/60,100,100);
 text("Sum of all die is " + count,880,30); //display score in top right
 
 }
